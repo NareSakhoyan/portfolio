@@ -1,0 +1,193 @@
+{
+  "version": 1,
+  "builtAt": "2026-08-19T12:11:13.763Z",
+  "embeddings": null,
+  "chunks": [
+    {
+      "id": "cv.md#0",
+      "source": "cv.md › Nare Sakhoyan — CV › Summary",
+      "file": "cv.md",
+      "text": "Nare Sakhoyan — CV / Summary\nNare Sakhoyan is a Senior Full-Stack Engineer with about 6 years of experience. Core stack: TypeScript, Node.js and Nest.js on the back end, React and Next.js on the front end, PostgreSQL and MongoDB databases, and GraphQL APIs. Based in Yerevan, Armenia. Positioning: \"I build full-stack products and the LLM features inside them — and I measure whether they actually work.\""
+    },
+    {
+      "id": "cv.md#1",
+      "source": "cv.md › Nare Sakhoyan — CV › Availability",
+      "file": "cv.md",
+      "text": "Nare Sakhoyan — CV / Availability\nNare is open to remote (worldwide) roles and to contract or EOR (employer-of-record) arrangements. Available to start immediately."
+    },
+    {
+      "id": "cv.md#2",
+      "source": "cv.md › Nare Sakhoyan — CV › Experience › Prostrive — Senior Full-Stack Engineer (Netherlands, remote), November 2025 – March 2026",
+      "file": "cv.md",
+      "text": "Nare Sakhoyan — CV / Experience / Prostrive — Senior Full-Stack Engineer (Netherlands, remote), November 2025 – March 2026\nCore engineer on PromptTracker (now called Answer One), an AEO (Answer Engine Optimization) platform. The product tracks how brands appear in AI answers. Stack: Next.js front-end, Nest.js/Node back-end. Connected the platform to multiple LLM providers to automate prompt generation, scraping, and validation of how brands appear in AI-generated answers. The role ended when the company's funding ended."
+    },
+    {
+      "id": "cv.md#3",
+      "source": "cv.md › Nare Sakhoyan — CV › Experience › Turing — Software Engineer, AI training data (US, remote), May 2024 – March 2025",
+      "file": "cv.md",
+      "text": "Nare Sakhoyan — CV / Experience / Turing — Software Engineer, AI training data (US, remote), May 2024 – March 2025\nAuthored and graded reference solutions to programming problems in HTML, CSS, JavaScript, TypeScript, Node.js, React, and SQL. These solutions were used to train reward models that improve LLM coding accuracy. This work means Nare understands how models are evaluated from the data side."
+    },
+    {
+      "id": "cv.md#4",
+      "source": "cv.md › Nare Sakhoyan — CV › Experience › Hearst Autos — Full-Stack Engineer (US, remote), March 2022 – December 2023",
+      "file": "cv.md",
+      "text": "Nare Sakhoyan — CV / Experience / Hearst Autos — Full-Stack Engineer (US, remote), March 2022 – December 2023\nWorked on the platform powering Hearst's automotive sites, including Car and Driver and Autoweek, and the shared system behind all Hearst sites. Built Next.js front-ends and Node.js and Python microservices at scale."
+    },
+    {
+      "id": "cv.md#5",
+      "source": "cv.md › Nare Sakhoyan — CV › Experience › Matemat — Full-Stack Engineer (Yerevan, Armenia), 2020 – 2021",
+      "file": "cv.md",
+      "text": "Nare Sakhoyan — CV / Experience / Matemat — Full-Stack Engineer (Yerevan, Armenia), 2020 – 2021\nFull-stack development with Node.js, Vue, MongoDB, GraphQL, and Elasticsearch."
+    },
+    {
+      "id": "cv.md#6",
+      "source": "cv.md › Nare Sakhoyan — CV › Education",
+      "file": "cv.md",
+      "text": "Nare Sakhoyan — CV / Education\nComputer Science coursework at Université Toulouse III (Paul Sabatier), 2019 – 2023. This is listed as coursework, not a completed degree. No further claims about degree completion should be made."
+    },
+    {
+      "id": "cv.md#7",
+      "source": "cv.md › Nare Sakhoyan — CV › Skills",
+      "file": "cv.md",
+      "text": "Nare Sakhoyan — CV / Skills\nTypeScript, JavaScript, Node.js, Nest.js, React, Next.js, Vue, PostgreSQL, MongoDB, GraphQL, Elasticsearch, Python (microservices), Docker, LLM integration (Anthropic Claude, tool use, RAG, evaluation harnesses), browser automation."
+    },
+    {
+      "id": "cv.md#8",
+      "source": "cv.md › Nare Sakhoyan — CV › Contact",
+      "file": "cv.md",
+      "text": "Nare Sakhoyan — CV / Contact\n- Email: nare.sakhoyan@gmail.com\n- GitHub: https://github.com/NareSakhoyan\n- LinkedIn: https://linkedin.com/in/naresakhoyan\n- CV (PDF): /cv.pdf"
+    },
+    {
+      "id": "facts.md#0",
+      "source": "facts.md › Facts about Nare Sakhoyan › Identity",
+      "file": "facts.md",
+      "text": "Facts about Nare Sakhoyan / Identity\n- Full name: Nare Sakhoyan.\n- Title: Senior Full-Stack Engineer.\n- Location: Yerevan, Armenia (timezone UTC+4).\n- Years of experience: about 6."
+    },
+    {
+      "id": "facts.md#1",
+      "source": "facts.md › Facts about Nare Sakhoyan › Availability and preferences",
+      "file": "facts.md",
+      "text": "Facts about Nare Sakhoyan / Availability and preferences\n- Open to remote roles anywhere in the world.\n- Open to contract and EOR (employer-of-record) arrangements as well as full-time remote employment.\n- Available to start immediately.\n- Looking for: full-stack or LLM/AI product engineering roles where shipping features and measuring whether they work both matter."
+    },
+    {
+      "id": "facts.md#2",
+      "source": "facts.md › Facts about Nare Sakhoyan › Things Nare will not discuss through this assistant",
+      "file": "facts.md",
+      "text": "Facts about Nare Sakhoyan / Things Nare will not discuss through this assistant\n- Salary expectations and compensation history are not published here; ask Nare directly by email.\n- Degree status: only \"Computer Science coursework at Toulouse III, 2019–2023\" is accurate. Do not claim a completed degree."
+    },
+    {
+      "id": "facts.md#3",
+      "source": "facts.md › Facts about Nare Sakhoyan › Working style",
+      "file": "facts.md",
+      "text": "Facts about Nare Sakhoyan / Working style\n- Builds full-stack products end to end (database, API, front-end) and the LLM features inside them.\n- Measures LLM features with evaluation harnesses (deterministic checks plus LLM-as-judge) rather than shipping on vibes.\n- Comfortable with TypeScript monorepos, Docker, Postgres, and browser automation."
+    },
+    {
+      "id": "facts.md#4",
+      "source": "facts.md › Facts about Nare Sakhoyan › Links",
+      "file": "facts.md",
+      "text": "Facts about Nare Sakhoyan / Links\n- GitHub: https://github.com/NareSakhoyan\n- LinkedIn: https://linkedin.com/in/naresakhoyan\n- Email: nare.sakhoyan@gmail.com\n- CV PDF: /cv.pdf"
+    },
+    {
+      "id": "project-armenian-nlp.md#0",
+      "source": "project-armenian-nlp.md › Project: Armenian NLP toolkit › Summary",
+      "file": "project-armenian-nlp.md",
+      "text": "Project: Armenian NLP toolkit / Summary\nAn NLP toolkit for Armenian, a low-resource language. The README includes a results table and an explicit limitations section."
+    },
+    {
+      "id": "project-armenian-nlp.md#1",
+      "source": "project-armenian-nlp.md › Project: Armenian NLP toolkit › Why",
+      "file": "project-armenian-nlp.md",
+      "text": "Project: Armenian NLP toolkit / Why\nArmenian has limited labeled data and few off-the-shelf tools, so the project documents what works, what does not, and where the data gaps are."
+    },
+    {
+      "id": "project-armenian-nlp.md#2",
+      "source": "project-armenian-nlp.md › Project: Armenian NLP toolkit › Status",
+      "file": "project-armenian-nlp.md",
+      "text": "Project: Armenian NLP toolkit / Status\nRepository and demo are linked from the project page. Results are placeholders until Nare fills them in."
+    },
+    {
+      "id": "project-ask-nare.md#0",
+      "source": "project-ask-nare.md › Project: Ask Nare › Summary",
+      "file": "project-ask-nare.md",
+      "text": "Project: Ask Nare / Summary\nAsk Nare is the chat widget on Nare Sakhoyan's portfolio site. It answers questions about Nare's experience, projects, and availability using retrieval-augmented generation (RAG), tool use, and guardrails, and it publishes an evaluation scorecard."
+    },
+    {
+      "id": "project-ask-nare.md#1",
+      "source": "project-ask-nare.md › Project: Ask Nare › How it works",
+      "file": "project-ask-nare.md",
+      "text": "Project: Ask Nare / How it works\n- Knowledge source: markdown files (CV facts, project READMEs, a facts file) chunked at build time. Embeddings are stored as JSON when an embedding provider is configured; otherwise BM25 keyword search is used so it works with only an Anthropic API key.\n- Model: Claude Haiku 4.5 by default (overridable by environment variable), streaming responses.\n- Tools exposed to the model: search_profile(query), get_project(slug), get_availability().\n- Guardrails: answers only from retrieved content, cites the source section, says \"I don't know\" when the content does not cover the question, politely refuses off-topic requests, never states salary, never speculates about degree completion.\n- Rate limiting: in-memory token bucket per IP, maximum 20 turns per session, capped output tokens.\n- Each answer shows latency and approximate cost.\n- Evaluation: scripts/eval-ask.ts runs a JSONL set of cases with deterministic checks plus an LLM judge and prints a scorecard; it fails under a threshold."
+    },
+    {
+      "id": "project-ask-nare.md#2",
+      "source": "project-ask-nare.md › Project: Ask Nare › Stack",
+      "file": "project-ask-nare.md",
+      "text": "Project: Ask Nare / Stack\nNext.js App Router route handler, @anthropic-ai/sdk, TypeScript, Vitest for unit tests."
+    },
+    {
+      "id": "project-foody.md#0",
+      "source": "project-foody.md › Project: Foody › Summary",
+      "file": "project-foody.md",
+      "text": "Project: Foody / Summary\nFoody is a recipe and pantry app. It recommends recipes based on what is in your pantry and supports favourites, drafts, and search history."
+    },
+    {
+      "id": "project-foody.md#1",
+      "source": "project-foody.md › Project: Foody › Stack",
+      "file": "project-foody.md",
+      "text": "Project: Foody / Stack\n- Back-end: Nest.js, Drizzle ORM, PostgreSQL, Clerk authentication, Cloudinary uploads.\n- Front-end: Next.js."
+    },
+    {
+      "id": "project-foody.md#2",
+      "source": "project-foody.md › Project: Foody › Repositories",
+      "file": "project-foody.md",
+      "text": "Project: Foody / Repositories\n- Back-end: https://github.com/NareSakhoyan/Foody-back\n- Front-end: https://github.com/NareSakhoyan/Foody-front"
+    },
+    {
+      "id": "project-job-search-agent.md#0",
+      "source": "project-job-search-agent.md › Project: Job-search agent › Summary",
+      "file": "project-job-search-agent.md",
+      "text": "Project: Job-search agent / Summary\nAn autonomous pipeline that discovers job postings, scores how well each one fits Nare's profile, tailors a résumé per posting using Claude tool use, and fills application forms via browser automation."
+    },
+    {
+      "id": "project-job-search-agent.md#1",
+      "source": "project-job-search-agent.md › Project: Job-search agent › What it does",
+      "file": "project-job-search-agent.md",
+      "text": "Project: Job-search agent / What it does\n- Discovers postings from applicant-tracking systems such as Greenhouse, Lever, Ashby, and others.\n- Scores each posting's fit against Nare's profile.\n- Tailors a résumé per posting with Claude tool use (structured output, schema-validated).\n- Fills application forms with browser automation."
+    },
+    {
+      "id": "project-job-search-agent.md#2",
+      "source": "project-job-search-agent.md › Project: Job-search agent › Stack",
+      "file": "project-job-search-agent.md",
+      "text": "Project: Job-search agent / Stack\nTypeScript monorepo (pnpm and turbo), Nest.js services, Next.js dashboard, PostgreSQL, Docker."
+    },
+    {
+      "id": "project-job-search-agent.md#3",
+      "source": "project-job-search-agent.md › Project: Job-search agent › Status",
+      "file": "project-job-search-agent.md",
+      "text": "Project: Job-search agent / Status\nRepository and demo GIF are linked from the project page. Metrics (postings discovered, applications submitted, precision of fit scoring) are placeholders until Nare fills them in."
+    },
+    {
+      "id": "project-llm-evalkit.md#0",
+      "source": "project-llm-evalkit.md › Project: llm-evalkit › Summary",
+      "file": "project-llm-evalkit.md",
+      "text": "Project: llm-evalkit / Summary\nllm-evalkit is a TypeScript evaluation harness that compares Claude Haiku, Sonnet, and Opus on résumé tailoring."
+    },
+    {
+      "id": "project-llm-evalkit.md#1",
+      "source": "project-llm-evalkit.md › Project: llm-evalkit › Graders",
+      "file": "project-llm-evalkit.md",
+      "text": "Project: llm-evalkit / Graders\n- Schema grader: does the output validate against the expected JSON schema?\n- Hallucination grader: does the tailored résumé invent facts not present in the source profile?\n- Keyword-coverage grader: how many of the posting's required keywords are covered?\n- LLM-judge grader: a model grades overall quality against a rubric."
+    },
+    {
+      "id": "project-llm-evalkit.md#2",
+      "source": "project-llm-evalkit.md › Project: llm-evalkit › Output",
+      "file": "project-llm-evalkit.md",
+      "text": "Project: llm-evalkit / Output\nA cost and latency report per model, plus per-grader pass rates. The report page and repository are linked from the project page. Numbers are placeholders until Nare fills them in."
+    },
+    {
+      "id": "project-llm-evalkit.md#3",
+      "source": "project-llm-evalkit.md › Project: llm-evalkit › Stack",
+      "file": "project-llm-evalkit.md",
+      "text": "Project: llm-evalkit / Stack\nTypeScript, Anthropic SDK, Zod schemas, Vitest."
+    }
+  ]
+}
