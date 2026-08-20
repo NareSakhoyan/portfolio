@@ -10,7 +10,7 @@ export function Now() {
             <strong className="text-fg">Available now</strong> for remote roles worldwide and for contract or EOR arrangements. Based in {SITE.location} (UTC+4), comfortable overlapping with European and US-East hours.
           </p>
           <p>
-            I’m looking for a senior full-stack or AI-product engineering role where shipping features and measuring whether they work both count. Ideal: TypeScript end to end, a real product, and LLM features that need evals, not just demos.
+            I’m looking for roles like <strong className="text-fg">Applied AI Engineer, Forward Deployed Engineer, AI Infrastructure / Agent Platform Engineer, or AI Systems Engineer</strong> — shipping LLM systems into production: harnesses, evals, RAG, tool use. Ideal: a real product, TypeScript end to end, and AI features that need proof, not just demos.
           </p>
         </div>
         <div className="rounded-xl border border-border bg-bg-elevated p-5 text-sm">

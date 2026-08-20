@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "builtAt": "2026-08-19T12:11:13.763Z",
+  "builtAt": "2026-08-20T22:32:26.926Z",
   "embeddings": null,
   "chunks": [
     {
       "id": "cv.md#0",
       "source": "cv.md › Nare Sakhoyan — CV › Summary",
       "file": "cv.md",
-      "text": "Nare Sakhoyan — CV / Summary\nNare Sakhoyan is a Senior Full-Stack Engineer with about 6 years of experience. Core stack: TypeScript, Node.js and Nest.js on the back end, React and Next.js on the front end, PostgreSQL and MongoDB databases, and GraphQL APIs. Based in Yerevan, Armenia. Positioning: \"I build full-stack products and the LLM features inside them — and I measure whether they actually work.\""
+      "text": "Nare Sakhoyan — CV / Summary\nNare Sakhoyan is an AI Engineer — a product engineer who ships LLM systems into production: agent harnesses, evaluation pipelines, RAG, tool use, and multi-provider orchestration. Target roles: Applied AI Engineer, Forward Deployed Engineer, AI Infrastructure / Agent Platform Engineer, AI Systems Engineer. This sits on a full-stack foundation of about 6 years: TypeScript, Node.js and Nest.js on the back end, React and Next.js on the front end, PostgreSQL and MongoDB, GraphQL. Based in Yerevan, Armenia. Positioning: \"Anyone can call a model. I build the harness around it — the part that decides whether it can be trusted.\""
     },
     {
       "id": "cv.md#1",
@@ -49,7 +49,7 @@
       "id": "cv.md#7",
       "source": "cv.md › Nare Sakhoyan — CV › Skills",
       "file": "cv.md",
-      "text": "Nare Sakhoyan — CV / Skills\nTypeScript, JavaScript, Node.js, Nest.js, React, Next.js, Vue, PostgreSQL, MongoDB, GraphQL, Elasticsearch, Python (microservices), Docker, LLM integration (Anthropic Claude, tool use, RAG, evaluation harnesses), browser automation."
+      "text": "Nare Sakhoyan — CV / Skills\nLLM systems: agent harnesses and tool-use loops (Anthropic Claude), RAG and retrieval design, evaluation harnesses (deterministic graders + LLM judges), guardrails, rate limiting and cost/latency observability, multi-provider orchestration, browser automation.\nFull-stack: TypeScript, JavaScript, Node.js, Nest.js, React, Next.js, Vue, PostgreSQL, MongoDB, GraphQL, Elasticsearch, Python (microservices), Docker."
     },
     {
       "id": "cv.md#8",
@@ -61,13 +61,13 @@
       "id": "facts.md#0",
       "source": "facts.md › Facts about Nare Sakhoyan › Identity",
       "file": "facts.md",
-      "text": "Facts about Nare Sakhoyan / Identity\n- Full name: Nare Sakhoyan.\n- Title: Senior Full-Stack Engineer.\n- Location: Yerevan, Armenia (timezone UTC+4).\n- Years of experience: about 6."
+      "text": "Facts about Nare Sakhoyan / Identity\n- Full name: Nare Sakhoyan.\n- Title: AI Engineer — a product engineer who ships LLM systems into production.\n- Focus: agent harnesses, evaluation pipelines, RAG, tool use, guardrails, LLM observability.\n- Location: Yerevan, Armenia (timezone UTC+4).\n- Foundation: about 6 years of full-stack engineering (TypeScript, Node/Nest.js, React/Next.js, Postgres)."
     },
     {
       "id": "facts.md#1",
       "source": "facts.md › Facts about Nare Sakhoyan › Availability and preferences",
       "file": "facts.md",
-      "text": "Facts about Nare Sakhoyan / Availability and preferences\n- Open to remote roles anywhere in the world.\n- Open to contract and EOR (employer-of-record) arrangements as well as full-time remote employment.\n- Available to start immediately.\n- Looking for: full-stack or LLM/AI product engineering roles where shipping features and measuring whether they work both matter."
+      "text": "Facts about Nare Sakhoyan / Availability and preferences\n- Open to remote roles anywhere in the world.\n- Open to contract and EOR (employer-of-record) arrangements as well as full-time remote employment.\n- Available to start immediately.\n- Looking for (target titles): Applied AI Engineer, Forward Deployed Engineer, AI Infrastructure / Agent Platform Engineer, AI Systems Engineer.\n- The right role involves shipping LLM systems into production and measuring whether they work — harnesses, evals, and product engineering, not research."
     },
     {
       "id": "facts.md#2",
@@ -79,7 +79,7 @@
       "id": "facts.md#3",
       "source": "facts.md › Facts about Nare Sakhoyan › Working style",
       "file": "facts.md",
-      "text": "Facts about Nare Sakhoyan / Working style\n- Builds full-stack products end to end (database, API, front-end) and the LLM features inside them.\n- Measures LLM features with evaluation harnesses (deterministic checks plus LLM-as-judge) rather than shipping on vibes.\n- Comfortable with TypeScript monorepos, Docker, Postgres, and browser automation."
+      "text": "Facts about Nare Sakhoyan / Working style\n- Builds the machinery around models: tool loops, retrieval, guardrails, rate limits, cost/latency telemetry.\n- Measures LLM features with evaluation harnesses (deterministic checks plus LLM-as-judge) rather than shipping on vibes; has been on the grading side too, writing reward-model training data at Turing.\n- Ships end to end on a full-stack foundation: database, API, front-end. Comfortable with TypeScript monorepos, Docker, Postgres, and browser automation."
     },
     {
       "id": "facts.md#4",

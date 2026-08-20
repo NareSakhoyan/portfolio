@@ -1,9 +1,16 @@
 export const SITE = {
   name: "Nare Sakhoyan",
-  title: "Nare Sakhoyan — Senior Full-Stack Engineer",
+  title: "Nare Sakhoyan — AI Engineer",
   tagline:
-    "I build full-stack products and the LLM features inside them — and I measure whether they actually work.",
-  role: "Senior Full-Stack Engineer",
+    "Anyone can call a model. I build the harness around it — the part that decides whether it can be trusted.",
+  role: "AI Engineer",
+  positioning: "Product engineer who ships LLM systems into production",
+  targetRoles: [
+    "Applied AI Engineer",
+    "Forward Deployed Engineer",
+    "AI Infrastructure / Agent Platform Engineer",
+    "AI Systems Engineer",
+  ],
   location: "Yerevan, Armenia",
   availability: "Open to remote & contract · start immediately",
   email: "nare.sakhoyan@gmail.com",
@@ -12,7 +19,7 @@ export const SITE = {
   cv: "/cv.pdf",
   sourceRepo: "REPLACE_ME_PORTFOLIO_REPO_URL",
   description:
-    "Senior Full-Stack Engineer (TypeScript · Node/Nest.js · React/Next.js · PostgreSQL/MongoDB · GraphQL). ~6 years. Builds full-stack products and the LLM features inside them, and measures whether they work.",
+    "Product engineer who ships LLM systems into production — agent harnesses, evals, RAG, tool use, multi-provider orchestration. Open to Applied AI, Forward Deployed, AI Infrastructure / Agent Platform, and AI Systems roles. Full-stack foundation: TypeScript, Node/Nest.js, React/Next.js, PostgreSQL.",
 } as const;
 
 export function siteUrl(): string {

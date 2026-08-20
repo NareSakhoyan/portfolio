@@ -40,7 +40,19 @@ const personJsonLd = {
   url: siteUrl(),
   address: { "@type": "PostalAddress", addressLocality: "Yerevan", addressCountry: "AM" },
   sameAs: [SITE.github, SITE.linkedin],
-  knowsAbout: ["TypeScript", "Node.js", "Nest.js", "React", "Next.js", "PostgreSQL", "MongoDB", "GraphQL", "LLM evaluation"],
+  knowsAbout: [
+    "LLM agent harnesses",
+    "LLM evaluation",
+    "RAG",
+    "Tool use",
+    "TypeScript",
+    "Node.js",
+    "Nest.js",
+    "React",
+    "Next.js",
+    "PostgreSQL",
+    "GraphQL",
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

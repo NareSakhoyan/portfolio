@@ -1,7 +1,7 @@
 # Nare Sakhoyan — CV
 
 ## Summary
-Nare Sakhoyan is a Senior Full-Stack Engineer with about 6 years of experience. Core stack: TypeScript, Node.js and Nest.js on the back end, React and Next.js on the front end, PostgreSQL and MongoDB databases, and GraphQL APIs. Based in Yerevan, Armenia. Positioning: "I build full-stack products and the LLM features inside them — and I measure whether they actually work."
+Nare Sakhoyan is an AI Engineer — a product engineer who ships LLM systems into production: agent harnesses, evaluation pipelines, RAG, tool use, and multi-provider orchestration. Target roles: Applied AI Engineer, Forward Deployed Engineer, AI Infrastructure / Agent Platform Engineer, AI Systems Engineer. This sits on a full-stack foundation of about 6 years: TypeScript, Node.js and Nest.js on the back end, React and Next.js on the front end, PostgreSQL and MongoDB, GraphQL. Based in Yerevan, Armenia. Positioning: "Anyone can call a model. I build the harness around it — the part that decides whether it can be trusted."
 
 ## Availability
 Nare is open to remote (worldwide) roles and to contract or EOR (employer-of-record) arrangements. Available to start immediately.
@@ -24,7 +24,8 @@ Full-stack development with Node.js, Vue, MongoDB, GraphQL, and Elasticsearch.
 Computer Science coursework at Université Toulouse III (Paul Sabatier), 2019 – 2023. This is listed as coursework, not a completed degree. No further claims about degree completion should be made.
 
 ## Skills
-TypeScript, JavaScript, Node.js, Nest.js, React, Next.js, Vue, PostgreSQL, MongoDB, GraphQL, Elasticsearch, Python (microservices), Docker, LLM integration (Anthropic Claude, tool use, RAG, evaluation harnesses), browser automation.
+LLM systems: agent harnesses and tool-use loops (Anthropic Claude), RAG and retrieval design, evaluation harnesses (deterministic graders + LLM judges), guardrails, rate limiting and cost/latency observability, multi-provider orchestration, browser automation.
+Full-stack: TypeScript, JavaScript, Node.js, Nest.js, React, Next.js, Vue, PostgreSQL, MongoDB, GraphQL, Elasticsearch, Python (microservices), Docker.
 
 ## Contact
 - Email: nare.sakhoyan@gmail.com
