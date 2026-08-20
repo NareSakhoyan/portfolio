@@ -5,6 +5,37 @@ summary: Notes from building an NLP toolkit for a low-resource language — what
 draft: false
 ---
 
-REPLACE_ME — placeholder post.
+[FILL: the concrete moment it broke for you — the first time you ran Armenian text through a standard NLP tool and got garbage. Name the tool and what came out. One short paragraph; this is the hook.]
 
-This post will walk through the data gaps in Armenian NLP, the normalisation and tokenization choices, and the results table with its limitations section.
+Most NLP tooling carries silent assumptions: Latin script, English-ish morphology, and a mountain of labeled data somewhere upstream. Armenian violates all three. It has its own 39-letter alphabet, rich inflectional morphology, and two written standards — Eastern (spoken in Armenia) and Western — that tools regularly conflate or ignore. The labeled corpora that do exist are small, uneven, and often built for one narrow task.
+
+So I built a toolkit, and — just as deliberately — a README that reports its limitations next to its results.
+
+## What "low-resource" actually means day to day
+
+It doesn't mean "train on less data." It means the problems move upstream of modeling entirely:
+
+- [FILL: the messiest data problem you hit — e.g. mixed Armenian/Latin script in real text, inconsistent orthography, scraped corpora contaminated with Russian/English];
+- evaluation sets barely exist, so before you can measure anything you have to build the thing you'll measure against — and now your test set inherits your own blind spots;
+- every published baseline needs re-verification, because it was likely measured on a different (tiny, private) split.
+
+[FILL: one sentence on where your data actually came from and roughly how much of it there was.]
+
+## What I built
+
+[FILL: replace this section with the real components. Structure that works: one short paragraph per component — what it does, one concrete input→output example in Armenian, one sentence on the non-obvious decision behind it. The repo's architecture sketch is normaliser → tokenizer → task models; correct it if that's not accurate. Show real Armenian text in the examples — that's what makes this post credible.]
+
+## Results — and the limitations table next to them
+
+[FILL: your actual results table from the README, pasted here.]
+
+The README has a limitations section with equal billing, and I think that's the more useful half. Mine includes entries like: [FILL: 2–3 real entries — e.g. "Eastern Armenian only; Western Armenian untested", "normaliser assumes post-reform orthography", "test set is N sentences I built myself"].
+
+Honest limitation reporting in a low-resource setting isn't modesty, it's information. The next person working on Armenian NLP loses days to every silently-overstated result. A results table without a limitations table is an advertisement.
+
+## What I'd tell someone building for another low-resource language
+
+- Spend the first budget on normalisation and evaluation data, not on models. A better model measured against a broken test set teaches you nothing.
+- Write down the variant/dialect scope on day one — "Armenian" isn't one target. [FILL: which standard you scoped to and what that decision saved or cost you.]
+- Publish the limitations with the results, in the same table if you can. It costs you a little shine and buys the field actual ground truth.
+- [FILL: one more lesson that's genuinely yours.]

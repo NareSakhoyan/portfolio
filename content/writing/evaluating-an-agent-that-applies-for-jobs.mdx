@@ -5,6 +5,49 @@ summary: How I decided whether to trust an autonomous pipeline with my own appli
 draft: false
 ---
 
-REPLACE_ME — placeholder post.
+[FILL: one real incident from an early run — e.g. the worst thing the agent put in a tailored résumé before you added graders. One or two sentences, specific. If nothing bad ever happened, say what you *caught in review* that made you take evals seriously.]
 
-This post will cover the evaluation design for the job-search agent: which graders mattered (schema validity, hallucination, keyword coverage, LLM judge), how I built trap cases, and where the agent still needs a human in the loop.
+That's the problem with an agent that applies for jobs on my behalf: its failures ship under my name. A hallucinated skill on a tailored résumé isn't a bug ticket — it's me lying to an employer. So before I let the pipeline run without me watching every application, I needed an answer to a boring question: how do I know it's good enough?
+
+## What the agent does
+
+The pipeline discovers postings from ATS boards (Greenhouse, Lever, Ashby), normalises them into one schema, scores each against my profile, tailors my résumé per posting using Claude tool use with schema-validated output, and fills the application form with browser automation. A small dashboard lets me review, approve, and audit each step. TypeScript monorepo, Nest.js, Next.js, Postgres, Docker.
+
+The step that can hurt me is tailoring. Discovery and form-filling fail loudly — a missed posting or a broken selector is annoying but visible. Tailoring fails quietly: the output is always a plausible-looking résumé. You can't eyeball your way to trusting it at volume.
+
+## Four graders, ordered by cost
+
+I grade every tailored résumé with four checks, cheapest first. Each one exists because it catches a failure the previous one can't.
+
+**1. Schema.** Does the output validate against the expected structure — sections present, dates well-formed, required fields filled? Free to run, catches the dumbest failures, and a surprising share of them. [FILL: roughly what share of early failures were plain schema failures?]
+
+**2. Hallucination.** Every factual claim in the tailored résumé must trace back to my source profile. The grader diffs claims against the source: a technology I never used, an employer I never had, a metric I never produced — instant fail. This is the one that protects my name. It's also the one where "mostly right" is worthless; the pass bar is absolute.
+
+**3. Keyword coverage.** Did the tailoring actually do its job? A résumé can be perfectly truthful and completely untargeted. This grader checks that the posting's required skills that I *genuinely have* appear in the output. Truthful-but-generic scores low.
+
+**4. LLM judge.** A model scores the result against a rubric — does it read like a strong, coherent résumé for *this* posting, not a keyword dump? The judge is the most expensive and least trustworthy grader, so it runs last, and it can only lower confidence, never override a hallucination fail.
+
+The ordering matters: deterministic checks gate before the judge ever runs, so the expensive, fuzzy opinion is only consulted about outputs that are already structurally valid and factually grounded.
+
+## Trap cases
+
+A test set built only from normal postings tells you how the agent does on a good day. I added traps:
+
+- postings that ask for skills I don't have — the correct output *omits* them, and a grader that only rewards keyword coverage would push the agent to lie;
+- [FILL: a second trap category you actually used — e.g. duplicate postings, postings in another language, senior-titled postings with junior scope];
+- [FILL: a third, if you had one].
+
+Traps are where the hallucination and coverage graders pull against each other, and that tension is the whole point: an agent optimised on coverage alone learns to fabricate.
+
+## What "good enough" meant
+
+[FILL: your actual bar and the real numbers — e.g. "schema and hallucination at 100% over N cases, coverage ≥ X, judge ≥ Y, before I stopped reviewing every application." Include the model choice outcome if you compared Haiku/Sonnet/Opus — which one you ran in production and why.]
+
+The human stayed in the loop at one place: [FILL: where you kept manual approval, and why that gate and not another].
+
+## Takeaways
+
+- If an agent acts under your name, hallucination checks aren't one grader among several — they're the gate everything else sits behind.
+- Order graders by cost. Deterministic checks first mean the LLM judge only sees candidates worth judging, and your eval run stays cheap enough to run on every change.
+- Build traps where your graders conflict. That's where the agent's real incentives show.
+- "Good enough" is a number you commit to in advance, not a feeling after a demo.
