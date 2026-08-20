@@ -1,0 +1,51 @@
+[
+  {
+    "slug": "job-search-agent",
+    "title": "Job-search agent",
+    "summary": "Autonomous pipeline that finds postings, scores fit, tailors a résumé per role with Claude tool use, and fills application forms via browser automation.",
+    "stack": ["TypeScript", "pnpm/turbo", "Nest.js", "Next.js", "Postgres", "Docker", "Claude tool use"],
+    "featured": true,
+    "size": "large",
+    "links": { "repo": "REPLACE_ME_JOB_AGENT_REPO_URL", "demo": "REPLACE_ME_JOB_AGENT_DEMO_GIF_URL" },
+    "metric": "REPLACE_ME e.g. 1,200 postings scored · 85 applications"
+  },
+  {
+    "slug": "ask-nare",
+    "title": "Ask Nare",
+    "summary": "The chat widget on this site: RAG + tool use + guardrails, with a published eval scorecard.",
+    "stack": ["Next.js", "@anthropic-ai/sdk", "BM25 / embeddings", "Vitest"],
+    "featured": true,
+    "size": "large",
+    "links": { "repo": "REPLACE_ME_PORTFOLIO_REPO_URL", "live": "/#ask", "report": "/evals" },
+    "metric": "See scorecard"
+  },
+  {
+    "slug": "llm-evalkit",
+    "title": "llm-evalkit",
+    "summary": "TypeScript eval harness comparing Haiku / Sonnet / Opus on résumé tailoring: schema, hallucination, keyword-coverage and LLM-judge graders with a cost/latency report.",
+    "stack": ["TypeScript", "Anthropic SDK", "Zod", "Vitest"],
+    "featured": true,
+    "size": "large",
+    "links": { "repo": "REPLACE_ME_EVALKIT_REPO_URL", "report": "REPLACE_ME_EVALKIT_REPORT_URL" },
+    "metric": "REPLACE_ME e.g. Sonnet 0.91 judge score at 0.4× Opus cost"
+  },
+  {
+    "slug": "armenian-nlp",
+    "title": "Armenian NLP toolkit",
+    "summary": "NLP for a low-resource language, with a README that states results and limitations honestly.",
+    "stack": ["Python", "Armenian", "Low-resource NLP"],
+    "featured": true,
+    "size": "large",
+    "links": { "repo": "REPLACE_ME_ARMENIAN_NLP_REPO_URL", "demo": "REPLACE_ME_ARMENIAN_NLP_DEMO_URL" },
+    "metric": "REPLACE_ME e.g. F1 0.xx on tokenization"
+  },
+  {
+    "slug": "foody",
+    "title": "Foody",
+    "summary": "Recipe + pantry app: pantry-based recommendations, favourites, drafts, search history.",
+    "stack": ["Nest.js", "Drizzle ORM", "Postgres", "Clerk", "Cloudinary", "Next.js"],
+    "featured": true,
+    "size": "small",
+    "links": { "repo": "https://github.com/NareSakhoyan/Foody-back", "repo2": "https://github.com/NareSakhoyan/Foody-front" }
+  }
+]

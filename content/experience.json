@@ -1,0 +1,46 @@
+[
+  {
+    "company": "Prostrive",
+    "role": "Senior Full-Stack Engineer",
+    "location": "Netherlands · remote",
+    "start": "2025-11",
+    "end": "2026-03",
+    "bullets": [
+      "Core engineer on PromptTracker (now Answer One), an Answer Engine Optimization platform — Next.js + Nest.js/Node.",
+      "Connected multiple LLM providers to automate prompt generation, scraping, and validation of how brands appear in AI answers. Role ended when funding ended."
+    ]
+  },
+  {
+    "company": "Turing",
+    "role": "Software Engineer — AI training data",
+    "location": "US · remote",
+    "start": "2024-05",
+    "end": "2025-03",
+    "bullets": [
+      "Authored and graded reference solutions (HTML/CSS/JS/TS/Node/React/SQL) used to train reward models that improve LLM coding accuracy.",
+      "Learned how models are evaluated from the data side — rubric design, grading consistency, and failure taxonomies."
+    ]
+  },
+  {
+    "company": "Hearst Autos",
+    "role": "Full-Stack Engineer",
+    "location": "US · remote",
+    "start": "2022-03",
+    "end": "2023-12",
+    "bullets": [
+      "Worked on the platform powering Car and Driver, Autoweek, and the shared system behind all Hearst sites.",
+      "Built Next.js front-ends and Node.js / Python microservices at publisher scale."
+    ]
+  },
+  {
+    "company": "Matemat",
+    "role": "Full-Stack Engineer",
+    "location": "Yerevan, Armenia",
+    "start": "2020-01",
+    "end": "2021-12",
+    "bullets": [
+      "Full-stack development with Node, Vue, MongoDB, GraphQL, and Elasticsearch.",
+      "Shipped search and data features end to end for a small product team."
+    ]
+  }
+]

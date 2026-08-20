@@ -1,0 +1,37 @@
+---
+title: Job-search agent
+summary: Autonomous pipeline that finds postings, scores fit, tailors a résumé per role with Claude tool use, and fills application forms via browser automation.
+---
+
+## Problem
+
+Applying for jobs at volume is repetitive work with a quality ceiling: every posting deserves a tailored résumé, but tailoring by hand for hundreds of postings is not realistic. I wanted a system that does the boring parts end to end and that I could **measure**.
+
+## What I built
+
+- A discovery stage that polls ATS boards (Greenhouse, Lever, Ashby, and others) and normalises postings into one schema.
+- A fit scorer that ranks each posting against my profile.
+- A tailoring stage that uses Claude tool use to rewrite my résumé per posting with schema-validated output.
+- A browser-automation stage that fills application forms and records what was submitted.
+- A small Next.js dashboard to review, approve, and audit each step.
+
+## Architecture
+
+```mermaid
+flowchart LR
+  A[ATS boards<br/>Greenhouse · Lever · Ashby] --> B[Discovery worker]
+  B --> C[(Postgres)]
+  C --> D[Fit scorer]
+  D --> E[Résumé tailor<br/>Claude tool use]
+  E --> F[Form filler<br/>browser automation]
+  F --> C
+  C --> G[Next.js dashboard]
+```
+
+## Result
+
+REPLACE_ME — postings discovered, applications submitted, precision of fit scoring, time saved per application.
+
+## Stack
+
+TypeScript monorepo (pnpm + turbo) · Nest.js · Next.js · PostgreSQL · Docker · `@anthropic-ai/sdk`

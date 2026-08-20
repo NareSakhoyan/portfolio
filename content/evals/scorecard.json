@@ -1,0 +1,8 @@
+{
+  "generatedAt": "REPLACE_ME",
+  "model": "claude-haiku-4-5-20251001",
+  "threshold": 0.8,
+  "passRate": null,
+  "cases": [],
+  "note": "Run `npm run eval:ask -- --write` to populate this file. Until then the /evals page shows the starter case list."
+}
