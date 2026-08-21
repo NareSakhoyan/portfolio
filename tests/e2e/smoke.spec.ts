@@ -82,9 +82,11 @@ test("project page renders MDX sections and stack", async ({ page }) => {
   await expect(page.getByRole("img", { name: "Architecture diagram" }).locator("svg")).toBeVisible({ timeout: 30_000 });
 });
 
-test("writing index, post and RSS feed are served", async ({ page, request }) => {
+test("writing index and RSS feed are served", async ({ page, request }) => {
   await page.goto("/writing");
-  await expect(page.getByRole("heading", { name: "Evaluating an agent that applies for jobs on my behalf" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "Writing" })).toBeVisible();
+  // Draft posts are hidden in production; the page must present either posts or the in-progress note.
+  await expect(page.getByText(/notes in progress|Evaluating an agent/).first()).toBeVisible();
   const feed = await request.get("/feed.xml");
   expect(feed.ok()).toBeTruthy();
   expect(await feed.text()).toContain("<rss");

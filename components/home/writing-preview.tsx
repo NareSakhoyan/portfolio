@@ -4,6 +4,7 @@ import { Section } from "./section";
 
 export async function WritingPreview() {
   const posts = (await getPosts()).slice(0, 3);
+  if (posts.length === 0) return null;
   return (
     <Section
       id="writing"

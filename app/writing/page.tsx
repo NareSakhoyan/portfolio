@@ -16,6 +16,13 @@ export default async function WritingPage() {
       <p className="mt-3 max-w-[60ch] text-fg-muted">
         Notes on shipping LLM features and measuring whether they work. <a href="/feed.xml" className="underline decoration-border underline-offset-4 hover:decoration-accent">RSS</a>
       </p>
+      {posts.length === 0 ? (
+        <p className="mt-10 max-w-[60ch] rounded-xl border border-dashed border-border p-5 font-mono text-sm text-fg-muted">
+          notes in progress — two essays are being written: one on evaluating an agent that applies
+          for jobs on my behalf, one on building Armenian NLP when the data isn’t there. Subscribe
+          to the <a href="/feed.xml" className="underline underline-offset-4">RSS feed</a> to catch them.
+        </p>
+      ) : null}
       <ul className="mt-10 divide-y divide-border">
         {posts.map((post) => (
           <li key={post.slug} className="py-6">
