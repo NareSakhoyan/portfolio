@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Newsreader } from "next/font/google";
+import { IBM_Plex_Mono, Inter, Newsreader } from "next/font/google";
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
 import { Providers } from "@/components/site/providers";
@@ -7,6 +7,12 @@ import { SITE, siteUrl } from "@/lib/site/config";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  variable: "--font-plex-mono",
+  display: "swap",
+  weight: ["400", "500"],
+});
 const newsreader = Newsreader({
   subsets: ["latin"],
   variable: "--font-newsreader",
@@ -57,7 +63,7 @@ const personJsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${newsreader.variable} h-full`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${newsreader.variable} ${plexMono.variable} h-full`}>
       <body className="flex min-h-full flex-col">
         <Providers>
           <Header />

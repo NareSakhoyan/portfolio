@@ -16,20 +16,20 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 72,
-          background: "#fbfaf7",
-          color: "#1c1b18",
+          background: "#0f0f0e",
+          color: "#ecebe6",
           fontFamily: "Georgia, serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 24, color: "#5c5a53" }}>
-          <div style={{ width: 12, height: 12, borderRadius: 999, background: "#9a3412" }} />
+        <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 24, color: "#aaa89f" }}>
+          <div style={{ width: 12, height: 12, borderRadius: 999, background: "#f5a76b" }} />
           <span>{SITE.availability}</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <div style={{ display: "flex", fontSize: 84, letterSpacing: -2, lineHeight: 1 }}>{SITE.name}</div>
-          <div style={{ display: "flex", fontSize: 34, lineHeight: 1.3, maxWidth: 980, color: "#1c1b18" }}>{SITE.tagline}</div>
+          <div style={{ display: "flex", fontSize: 34, lineHeight: 1.3, maxWidth: 980, color: "#ecebe6" }}>{SITE.tagline}</div>
         </div>
-        <div style={{ display: "flex", fontSize: 26, color: "#5c5a53" }}>{`${SITE.role} · TypeScript · Node/Nest.js · React/Next.js`}</div>
+        <div style={{ display: "flex", fontSize: 26, color: "#aaa89f" }}>{`${SITE.role} · agent harnesses · evals · RAG · tool use`}</div>
       </div>
     ),
     { ...size },

@@ -1,16 +1,18 @@
 # Portfolio — Nare Sakhoyan
 
-Personal site of **Nare Sakhoyan**, Senior Full-Stack Engineer, with an embedded **Ask Nare** assistant: a streaming Claude tool-use chat that answers questions about my work from a published knowledge base — and proves it with an eval scorecard.
+Personal site of **Nare Sakhoyan**, AI Engineer — a product engineer who ships LLM systems into production. The homepage is a scroll-driven "living system" film: the site boots its own harness on screen, draws its architecture, replays its eval suite, and ends with **Ask Nare** — a live streaming Claude tool-use chat grounded in a published knowledge base with a public eval scorecard. A classic scannable view lives at `/overview` (press `i` on the film).
 
-Built with Next.js 16 (App Router) · TypeScript strict · Tailwind v4 · MDX · `@anthropic-ai/sdk`.
+Built with Next.js 16 (App Router) · TypeScript strict · Tailwind v4 · Motion · MDX · `@anthropic-ai/sdk`.
 
-| Home (light) | Home (dark) |
+| Boot scene | Anatomy scene |
 | --- | --- |
-| ![Home, light theme](docs/screenshots/home-light.png) | ![Home, dark theme](docs/screenshots/home-dark.png) |
+| ![Boot scene: the harness assembles around a model](docs/screenshots/film-boot.png) | ![Anatomy scene: the site draws its own schematic](docs/screenshots/film-anatomy.png) |
 
-| Project page | Ask Nare |
+| Self-test scene | Console (Ask Nare) |
 | --- | --- |
-| ![Project page](docs/screenshots/project-job-search-agent.png) | ![Ask Nare answering a question about Prostrive](docs/screenshots/chat-prostrive-mocked.png) |
+| ![Self-test scene: eval cases replay](docs/screenshots/film-selftest.png) | ![Ask Nare answering a question about Prostrive](docs/screenshots/chat-prostrive-mocked.png) |
+
+![Overview index page](docs/screenshots/overview.png)
 
 > The chat screenshot was captured with `/api/ask` mocked (no API credit in the build environment); the text shown is the expected answer. Re-capture live with `E2E_REAL_API=1 npm run test:e2e`.
 
@@ -86,16 +88,16 @@ Zero config — the build regenerates the index automatically.
 
 ## Quality
 
-- **Lighthouse** (production build, home page): desktop 100 / 100 / 100 / 100; mobile 96–97 perf, 100 elsewhere; CLS 0.
-- **Accessibility**: WCAG AA contrast in both themes, semantic landmarks, skip link, keyboard-navigable chat with `aria-live`, visible focus, `prefers-reduced-motion` respected.
-- **Tests**: 43 Vitest unit tests (retrieval, rate limiter, graders, stream protocol) and 4 Playwright smoke tests; CI runs lint, typecheck, unit, build, and e2e.
+- **Lighthouse** (production build, film homepage): desktop 99 perf / 100 / 100 / 100; mobile 92 perf, 100 elsewhere; CLS 0.
+- **Accessibility**: WCAG AA contrast, semantic landmarks, skip link, keyboard-navigable chat with `aria-live`, visible focus; `prefers-reduced-motion` renders every scene as a static frame instead of a scrub.
+- **Tests**: 43 Vitest unit tests (retrieval, rate limiter, graders, stream protocol) and 6 Playwright smoke tests (film, overview, chat, keyboard escape hatch, MDX, RSS); CI runs lint, typecheck, unit, build, and e2e.
 - **SEO**: OG image via `next/og`, sitemap, robots, JSON-LD `Person`/`BlogPosting`, RSS.
 
 ## Layout
 
 ```
-app/          routes: / · projects/[slug] · writing[/slug] · evals · api/ask · feed.xml · sitemap · robots · og-image
-components/   site chrome · home sections · ask widget · mdx + mermaid · motion
+app/          routes: / (film) · overview · projects/[slug] · writing[/slug] · evals · api/ask · feed.xml · sitemap · robots · og-image
+components/   film scenes (boot → status) · site chrome · overview sections · ask widget · mdx + mermaid · motion
 content/      profile (RAG source) · projects · writing · evals · projects.json · experience.json
 lib/          ask (chunk, bm25, embeddings, retriever, tools, agent, limits) · content · eval · site
 scripts/      build-index.ts · eval-ask.ts

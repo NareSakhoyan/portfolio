@@ -29,11 +29,18 @@ async function mockAskRoute(page: Page) {
   });
 }
 
-test("home page loads with hero, widget, projects, experience", async ({ page }) => {
+test("home film loads: boot scene, console, and status render", async ({ page }) => {
   await page.goto("/");
+  await expect(page.getByRole("heading", { level: 1, name: "Nare Sakhoyan" })).toBeAttached();
+  await expect(page.getByText("harness ready.")).toBeAttached();
+  await expect(page.getByRole("heading", { level: 2, name: "Ask Nare" })).toBeAttached();
+  await expect(page.getByText("This is a harness with a model inside.")).toBeAttached();
+  await expect(page.getByText("accepting connections").first()).toBeAttached();
+});
+
+test("overview index page shows the classic scannable layout", async ({ page }) => {
+  await page.goto("/overview");
   await expect(page.getByRole("heading", { level: 1, name: "Nare Sakhoyan" })).toBeVisible();
-  await expect(page.getByText("Open to remote & contract")).toBeVisible();
-  await expect(page.getByRole("heading", { level: 2, name: "Ask Nare" })).toBeVisible();
   await expect(page.getByRole("heading", { level: 2, name: "Projects" })).toBeVisible();
   await expect(page.getByRole("heading", { level: 2, name: "Experience" })).toBeVisible();
   await expect(page.getByRole("link", { name: /Job-search agent/ })).toBeVisible();
@@ -52,6 +59,18 @@ test("chat answers a known question with sources, latency and cost", async ({ pa
   await expect(log.getByText(/\d+\.\ds · ≈\$/)).toBeVisible({ timeout: 45_000 });
   await expect(log.getByText(/sources: cv\.md/)).toBeVisible();
   await expect(page.getByText("19/20 questions left")).toBeVisible();
+});
+
+test("pressing i on the film jumps to the index view", async ({ page }) => {
+  await page.goto("/");
+  // The listener attaches on hydration; keep pressing until navigation happens.
+  await expect
+    .poll(async () => {
+      await page.keyboard.press("i");
+      return page.url();
+    }, { timeout: 15_000 })
+    .toContain("/overview");
+  await expect(page.getByRole("heading", { level: 2, name: "Projects" })).toBeVisible();
 });
 
 test("project page renders MDX sections and stack", async ({ page }) => {
