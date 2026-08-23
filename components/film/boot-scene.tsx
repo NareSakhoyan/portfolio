@@ -16,7 +16,7 @@ function bootLines(stats: BootStats): { label: string; detail: string; status: s
     { label: "guardrails", detail: "no salary · no speculation · cite or decline", status: "ok" },
     { label: "limiter", detail: "10/min per client · global cap · 64kb body", status: "ok" },
     { label: "graders", detail: "schema · hallucination · coverage · judge", status: "ok" },
-    { label: "evals", detail: `${stats.cases} cases · ${stats.traps} traps · published`, status: "ok" },
+    { label: "evals", detail: `${stats.cases} cases · ${stats.traps} traps · run pending`, status: "ok" },
     { label: "model", detail: stats.model, status: "(swappable)" },
   ];
 }
@@ -35,13 +35,21 @@ function Enter({ delay, reduce, children }: { delay: number; reduce: boolean; ch
   );
 }
 
+/**
+ * Mobile: label + status share a row (justify-between), detail wraps below.
+ * `sm:` and up: reassembles into the original single-line, ellipsis-truncated row.
+ */
 function BootLine({ label, detail, status }: { label: string; detail: string; status: string }) {
+  const statusClass = status === "ok" ? "text-fg-subtle" : "text-accent";
   return (
-    <p className="flex gap-3 whitespace-nowrap">
-      <span className="w-24 shrink-0 text-fg-subtle">{label}</span>
-      <span className="min-w-0 flex-1 overflow-hidden text-ellipsis">{detail}</span>
-      <span className={status === "ok" ? "text-fg-subtle" : "text-accent"}>{status}</span>
-    </p>
+    <div className="grid grid-cols-[auto_1fr] items-baseline gap-x-3 gap-y-0.5 py-0.5 sm:flex sm:whitespace-nowrap sm:py-0">
+      <span className="text-fg-subtle sm:w-24 sm:shrink-0">{label}</span>
+      <span className={`justify-self-end text-right sm:hidden ${statusClass}`}>{status}</span>
+      <span className="col-span-2 min-w-0 text-fg-muted sm:col-span-1 sm:flex-1 sm:overflow-hidden sm:text-ellipsis">
+        {detail}
+      </span>
+      <span className={`hidden sm:inline sm:shrink-0 ${statusClass}`}>{status}</span>
+    </div>
   );
 }
 
@@ -50,7 +58,7 @@ function Identity() {
     <div className="mt-10">
       <p className="font-mono text-xs text-fg-subtle">harness ready.</p>
       <h1 className="mt-4 font-serif text-5xl tracking-tight text-fg sm:text-7xl">{SITE.name}</h1>
-      <p className="mt-3 text-lg text-fg-muted">{SITE.role} · {SITE.positioning}</p>
+      <p className="mt-3 text-lg text-fg-muted">{SITE.subtitle}</p>
       <p className="mt-4 inline-flex items-center gap-2 font-mono text-xs text-fg-muted">
         <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent" />
         accepting connections — remote · contract · immediate
@@ -69,7 +77,7 @@ export function BootScene({ stats, reduce }: { stats: BootStats; reduce: boolean
       id="boot"
       className="relative mx-auto flex min-h-svh w-full max-w-6xl flex-col justify-center px-5 py-16 sm:px-8"
     >
-      <div className="font-mono text-[0.8rem] leading-7 text-fg-muted sm:text-sm" aria-label="System boot log">
+      <div className="font-mono text-[0.8rem] leading-6 text-fg-muted sm:text-sm sm:leading-7" aria-label="System boot log">
         {bootLines(stats).map((line, i) => (
           <Enter key={line.label} delay={0.15 + i * LINE_STAGGER} reduce={reduce}>
             <BootLine {...line} />

@@ -8,14 +8,15 @@ import type { FilmEvalCase } from "./types";
 
 function CaseRow({ evalCase }: { evalCase: FilmEvalCase }) {
   const isTrap = evalCase.expectRefusal || evalCase.id.startsWith("trap");
+  const idClass = isTrap ? "text-accent" : "text-fg-subtle";
+  const result = evalCase.expectRefusal ? "must decline ✓" : isTrap ? "trap · graded ✓" : "graded ✓";
   return (
-    <p className="flex items-baseline gap-3 font-mono text-[0.8rem] leading-7 sm:text-sm">
-      <span className={`w-28 shrink-0 truncate ${isTrap ? "text-accent" : "text-fg-subtle"}`}>{evalCase.id}</span>
-      <span className="min-w-0 flex-1 truncate text-fg-muted">{evalCase.question}</span>
-      <span className="shrink-0 text-fg-subtle">
-        {evalCase.expectRefusal ? "must decline ✓" : isTrap ? "trap · graded ✓" : "graded ✓"}
-      </span>
-    </p>
+    <div className="grid grid-cols-[auto_1fr] items-baseline gap-x-3 gap-y-0.5 py-0.5 font-mono text-[0.8rem] leading-6 sm:flex sm:whitespace-nowrap sm:py-0 sm:text-sm sm:leading-7">
+      <span className={`${idClass} sm:w-28 sm:shrink-0 sm:truncate`}>{evalCase.id}</span>
+      <span className="justify-self-end text-right text-fg-subtle sm:hidden">{result}</span>
+      <span className="col-span-2 min-w-0 text-fg-muted sm:col-span-1 sm:flex-1 sm:truncate">{evalCase.question}</span>
+      <span className="hidden shrink-0 text-fg-subtle sm:inline">{result}</span>
+    </div>
   );
 }
 
@@ -58,7 +59,7 @@ export function SelfTestScene({ cases, reduce }: { cases: FilmEvalCase[]; reduce
   return (
     <Scene
       id="selftest"
-      length={3}
+      length={1.4}
       reduce={reduce}
       staticFrame={
         <>
