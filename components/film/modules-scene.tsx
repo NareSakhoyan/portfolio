@@ -36,10 +36,15 @@ function ModulePanel({ project, index, total }: { project: ProjectMeta; index: n
       <p className="font-mono text-xs text-fg-subtle">
         module {String(index + 1).padStart(2, "0")}/{String(total).padStart(2, "0")}
       </p>
-      <h3 className="mt-3 font-serif text-4xl tracking-tight text-fg sm:text-6xl">
+      <h3 className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 font-serif text-4xl tracking-tight text-fg sm:text-6xl">
         <Link href={`/projects/${project.slug}`} className="hover:text-accent">
           {project.title}
         </Link>
+        {project.status === "in_progress" ? (
+          <span className="rounded-full border border-dashed border-fg-subtle px-2.5 py-0.5 font-mono text-xs font-normal tracking-normal text-fg-subtle">
+            in progress
+          </span>
+        ) : null}
       </h3>
       <p className="mt-4 font-mono text-sm text-accent sm:text-base">{meta.sig}</p>
       <p className="mt-4 max-w-[52ch] text-lg text-fg-muted">{project.summary}</p>
@@ -73,7 +78,7 @@ export function ModulesScene({ projects, reduce }: { projects: ProjectMeta[]; re
   return (
     <Scene
       id="modules"
-      length={Math.max(4, total + 1)}
+      length={Math.max(2.2, total * 0.46)}
       reduce={reduce}
       staticFrame={
         <>

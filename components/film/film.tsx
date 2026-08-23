@@ -7,6 +7,7 @@ import type { ExperienceEntry, ProjectMeta } from "@/lib/content/types";
 import { AnatomyScene } from "./anatomy-scene";
 import { BootScene } from "./boot-scene";
 import { ConsoleScene } from "./console-scene";
+import { MidStatusScene } from "./mid-status-scene";
 import { ModulesScene } from "./modules-scene";
 import { RuntimeScene } from "./runtime-scene";
 import { SelfTestScene } from "./selftest-scene";
@@ -42,6 +43,7 @@ export function Film({ stats, projects, experience, cases }: FilmProps) {
       <BootScene stats={stats} reduce={reduce} />
       <ThesisScene reduce={reduce} />
       <AnatomyScene reduce={reduce} />
+      <MidStatusScene />
       <ModulesScene projects={projects} reduce={reduce} />
       <RuntimeScene experience={experience} reduce={reduce} />
       <SelfTestScene cases={cases} reduce={reduce} />

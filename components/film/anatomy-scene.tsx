@@ -31,7 +31,7 @@ const NOTES = [
   { at: 0.16, text: "the model never sees a request the limiter didn’t approve" },
   { at: 0.42, text: "every answer traces to a retrieved chunk — cite or decline" },
   { at: 0.62, text: "latency and cost are printed under every reply, not hidden in logs" },
-  { at: 0.72, text: "8 cases · 3 traps · scorecard published, failures included" },
+  { at: 0.72, text: "8 cases · 3 traps defined — run pending, failures will be included" },
 ] as const;
 
 function Schematic({ progress }: { progress?: MotionValue<number> }) {
@@ -39,7 +39,7 @@ function Schematic({ progress }: { progress?: MotionValue<number> }) {
     <svg
       viewBox="0 0 960 340"
       role="img"
-      aria-label="Schematic of this site's harness: request through limiter into the agent loop, out to tools and retrieval, constrained by guardrails, streaming with telemetry into published evals"
+      aria-label="Schematic of this site's harness: request through limiter into the agent loop, out to tools and retrieval, constrained by guardrails, streaming with telemetry into the evals pipeline"
       className="w-full max-w-5xl text-fg-subtle"
     >
       {BLOCKS.map((b) => {
@@ -85,7 +85,7 @@ export function AnatomyScene({ reduce }: { reduce: boolean }) {
   return (
     <Scene
       id="anatomy"
-      length={4}
+      length={1.9}
       reduce={reduce}
       staticFrame={
         <>

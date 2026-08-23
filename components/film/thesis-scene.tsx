@@ -35,7 +35,7 @@ export function ThesisScene({ reduce }: { reduce: boolean }) {
   return (
     <Scene
       id="thesis"
-      length={3}
+      length={1.5}
       reduce={reduce}
       staticFrame={
         <>

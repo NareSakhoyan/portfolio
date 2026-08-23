@@ -58,7 +58,7 @@ export function RuntimeScene({ experience, reduce }: { experience: ExperienceEnt
   return (
     <Scene
       id="runtime"
-      length={5}
+      length={Math.max(1.8, chronological.length * 0.5)}
       reduce={reduce}
       className="!max-w-none !px-0"
       staticFrame={
