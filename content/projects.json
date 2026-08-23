@@ -12,22 +12,23 @@
   {
     "slug": "ask-nare",
     "title": "Ask Nare",
-    "summary": "The chat widget on this site: RAG + tool use + guardrails, with a published eval scorecard.",
+    "summary": "The chat widget on this site: RAG + tool use + guardrails. Live now — the eval scorecard is in progress.",
     "stack": ["Next.js", "@anthropic-ai/sdk", "BM25 / embeddings", "Vitest"],
     "featured": true,
     "size": "large",
-    "links": { "repo": "REPLACE_ME_PORTFOLIO_REPO_URL", "live": "/#ask", "report": "/evals" },
-    "metric": "See scorecard"
+    "links": { "repo": "REPLACE_ME_PORTFOLIO_REPO_URL", "live": "/#console", "report": "/evals" },
+    "metric": "Eval scorecard: in progress"
   },
   {
     "slug": "llm-evalkit",
     "title": "llm-evalkit",
-    "summary": "TypeScript eval harness comparing Haiku / Sonnet / Opus on résumé tailoring: schema, hallucination, keyword-coverage and LLM-judge graders with a cost/latency report.",
+    "summary": "TypeScript eval harness comparing Haiku / Sonnet / Opus on résumé tailoring: schema, hallucination, keyword-coverage and LLM-judge graders with a cost/latency report. In progress — repo and report not yet published.",
     "stack": ["TypeScript", "Anthropic SDK", "Zod", "Vitest"],
     "featured": true,
     "size": "large",
+    "status": "in_progress",
     "links": { "repo": "REPLACE_ME_EVALKIT_REPO_URL", "report": "REPLACE_ME_EVALKIT_REPORT_URL" },
-    "metric": "REPLACE_ME e.g. Sonnet 0.91 judge score at 0.4× Opus cost"
+    "metric": "In progress"
   },
   {
     "slug": "armenian-nlp",

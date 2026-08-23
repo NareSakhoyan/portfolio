@@ -31,7 +31,7 @@ export default async function EvalsPage() {
 
   return (
     <div className="mx-auto w-full max-w-5xl px-5 py-10 sm:px-8">
-      <Link href="/#ask" className="text-sm text-fg-muted hover:text-fg">← Ask Nare</Link>
+      <Link href="/#console" className="text-sm text-fg-muted hover:text-fg">← Ask Nare</Link>
       <h1 className="mt-6 font-serif text-4xl tracking-tight text-fg">Ask Nare — eval scorecard</h1>
       <p className="mt-3 max-w-[68ch] text-fg-muted">
         Every case runs through the real assistant, then through deterministic checks (required phrases, forbidden phrases, refusal expectation) and an LLM judge scoring against a rubric. Trap questions test salary, degree speculation, and off-topic requests. Regenerate with <code className="rounded bg-code-bg px-1 text-sm">npm run eval:ask -- --write</code>.

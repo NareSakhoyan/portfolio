@@ -47,7 +47,14 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
     <article className="mx-auto w-full max-w-5xl px-5 py-10 sm:px-8">
       <Link href="/#projects" className="text-sm text-fg-muted hover:text-fg">← Projects</Link>
       <header className="mt-6 max-w-[68ch]">
-        <h1 className="font-serif text-4xl tracking-tight text-fg sm:text-5xl">{project.title}</h1>
+        <h1 className="flex flex-wrap items-baseline gap-x-3 gap-y-2 font-serif text-4xl tracking-tight text-fg sm:text-5xl">
+          {project.title}
+          {project.status === "in_progress" ? (
+            <span className="rounded-full border border-dashed border-fg-subtle px-3 py-0.5 font-mono text-sm font-normal text-fg-subtle">
+              in progress
+            </span>
+          ) : null}
+        </h1>
         <p className="mt-4 text-lg text-fg-muted">{project.summary}</p>
         <ul className="mt-6 flex flex-wrap gap-2" aria-label="Links">
           {links.map(([key, url]) => (

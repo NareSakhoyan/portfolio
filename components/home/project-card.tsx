@@ -9,10 +9,15 @@ export function ProjectCard({ project }: { project: ProjectMeta }) {
         isSmall ? "sm:col-span-1" : "sm:col-span-1"
       }`}
     >
-      <h3 className="font-serif text-xl tracking-tight text-fg">
+      <h3 className="flex flex-wrap items-baseline gap-x-2 gap-y-1 font-serif text-xl tracking-tight text-fg">
         <Link href={`/projects/${project.slug}`} className="after:absolute after:inset-0 after:content-['']">
           {project.title}
         </Link>
+        {project.status === "in_progress" ? (
+          <span className="rounded-full border border-dashed border-fg-subtle px-2 py-0.5 font-mono text-[0.65rem] font-normal text-fg-subtle">
+            in progress
+          </span>
+        ) : null}
       </h3>
       <p className="mt-2 text-sm leading-relaxed text-fg-muted">{project.summary}</p>
       {project.metric && !project.metric.startsWith("REPLACE_ME") ? (

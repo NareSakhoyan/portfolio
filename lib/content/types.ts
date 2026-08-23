@@ -11,6 +11,8 @@ export interface ProjectMeta {
   size: "large" | "small";
   links: ProjectLinks;
   metric?: string;
+  /** Set when the project's headline claim (results, report, scorecard) isn't published yet. */
+  status?: "in_progress";
 }
 
 export interface ExperienceEntry {

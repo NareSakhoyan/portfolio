@@ -5,6 +5,8 @@ export const SITE = {
     "Anyone can call a model. I build the harness around it — the part that decides whether it can be trusted.",
   role: "AI Engineer",
   positioning: "Product engineer who ships LLM systems into production",
+  /** Short line for the hero/boot identity — keeps "Full-Stack" visible alongside the AI framing. */
+  subtitle: "AI Engineer · Full-Stack — ships LLM systems into production",
   targetRoles: [
     "Applied AI Engineer",
     "Forward Deployed Engineer",
