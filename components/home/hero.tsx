@@ -19,7 +19,7 @@ export function Hero() {
         {SITE.name}
       </h1>
       <p className="mt-3 text-lg text-fg-muted">
-        {SITE.role} · {SITE.positioning.toLowerCase()}
+        {SITE.role} · {SITE.positioning}
       </p>
       {/* Kept static: it is the LCP element, so it must paint before hydration. */}
       <p className="mt-8 max-w-[40ch] font-serif text-2xl leading-snug text-fg sm:text-[2rem]">
