@@ -1,20 +1,26 @@
 # Portfolio — Nare Sakhoyan
 
-Personal site of **Nare Sakhoyan**, AI Engineer — a product engineer who ships LLM systems into production. The homepage is a scroll-driven "living system" film: the site boots its own harness on screen, draws its architecture, replays its eval suite, and ends with **Ask Nare** — a live streaming Claude tool-use chat grounded in a published knowledge base with a public eval scorecard. A classic scannable view lives at `/overview` (press `i` on the film).
+Personal site of **Nare Sakhoyan**, AI Engineer — a product engineer who ships LLM systems into production. The homepage is a scroll-driven "living system" film: the site boots its own harness on screen, draws its architecture, replays its eval suite, and ends with **Ask Nare** — a live streaming Claude tool-use chat grounded in a published knowledge base. A classic scannable view lives at `/overview` (press `i` on the film).
 
 Built with Next.js 16 (App Router) · TypeScript strict · Tailwind v4 · Motion · MDX · `@anthropic-ai/sdk`.
 
 | Boot scene | Anatomy scene |
 | --- | --- |
-| ![Boot scene: the harness assembles around a model](docs/screenshots/film-boot.png) | ![Anatomy scene: the site draws its own schematic](docs/screenshots/film-anatomy.png) |
+| ![Boot scene: the harness assembles around a model, autoplaying on load](docs/screenshots/film-boot.png) | ![Anatomy scene: the site draws its own schematic](docs/screenshots/film-anatomy.png) |
 
-| Self-test scene | Console (Ask Nare) |
+| Mid-film status | Self-test scene |
 | --- | --- |
-| ![Self-test scene: eval cases replay](docs/screenshots/film-selftest.png) | ![Ask Nare answering a question about Prostrive](docs/screenshots/chat-prostrive-mocked.png) |
+| ![Mid-film status/contact beat at roughly the one-third mark](docs/screenshots/film-mid-status.png) | ![Self-test scene: eval cases replay, including the three trap questions](docs/screenshots/film-selftest.png) |
+
+| Module card, honestly flagged | Ask Nare |
+| --- | --- |
+| ![llm-evalkit module marked in progress, no invented numbers](docs/screenshots/film-modules-evalkit.png) | ![Ask Nare answering a question about Prostrive](docs/screenshots/chat-prostrive-mocked.png) |
 
 ![Overview index page](docs/screenshots/overview.png)
 
 > The chat screenshot was captured with `/api/ask` mocked (no API credit in the build environment); the text shown is the expected answer. Re-capture live with `E2E_REAL_API=1 npm run test:e2e`.
+>
+> Projects without a published deliverable yet (currently **llm-evalkit**) carry an explicit **"in progress"** badge on the module card, the overview grid, and the project detail page — never a placeholder number dressed up as a result. Ask Nare is live and answering questions right now; only its eval scorecard is still pending (`/evals`).
 
 ## Quick start
 
@@ -58,7 +64,7 @@ Everything user-facing lives in `content/` — no code changes needed.
 
 | What | Where |
 | --- | --- |
-| Project cards (links, stack, metrics) | `content/projects.json` — `REPLACE_ME` links render as "soon" pills |
+| Project cards (links, stack, metrics) | `content/projects.json` — `REPLACE_ME` links render as "soon" pills; set `"status": "in_progress"` to show an explicit badge until a real deliverable is published |
 | Project detail pages | `content/projects/<slug>.mdx` — ` ```mermaid ` fences become diagrams |
 | Experience timeline | `content/experience.json` |
 | Blog posts (RSS at `/feed.xml`) | `content/writing/<slug>.mdx` |
@@ -88,8 +94,9 @@ Zero config — the build regenerates the index automatically.
 
 ## Quality
 
-- **Lighthouse** (production build, film homepage): desktop 99 perf / 100 / 100 / 100; mobile 92 perf, 100 elsewhere; CLS 0.
-- **Accessibility**: WCAG AA contrast, semantic landmarks, skip link, keyboard-navigable chat with `aria-live`, visible focus; `prefers-reduced-motion` renders every scene as a static frame instead of a scrub.
+- **Lighthouse** (production build, film homepage): desktop 100 / 100 / 100 / 100, CLS 0. Mobile: accessibility/best-practices/SEO 100, but **performance currently measures ~80** — the boot scene's identity text (the LCP element) is intentionally opacity-animated in on a timer rather than painting immediately, which costs LCP under mobile throttling. Known tradeoff of the autoplay-on-load design, not yet re-optimized; a static-then-CSS-fade version of just that element would likely recover most of it.
+- **Accessibility**: WCAG AA contrast, semantic landmarks, skip link, keyboard-navigable chat with `aria-live`, visible focus; `prefers-reduced-motion` renders every scene as a static frame instead of a scrub. Header and boot log are responsive down to 360px — no wrapped nav, no mid-word truncation.
+- **Honesty**: nothing on the site claims a result that doesn't exist yet. Projects without a published deliverable (currently `llm-evalkit`) carry an explicit "in progress" badge everywhere they appear; Ask Nare is live but its eval scorecard is marked pending until `npm run eval:ask -- --write` actually runs.
 - **Tests**: 43 Vitest unit tests (retrieval, rate limiter, graders, stream protocol) and 6 Playwright smoke tests (film, overview, chat, keyboard escape hatch, MDX, RSS); CI runs lint, typecheck, unit, build, and e2e.
 - **SEO**: OG image via `next/og`, sitemap, robots, JSON-LD `Person`/`BlogPosting`, RSS.
 
