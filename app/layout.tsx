@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono, Inter, Newsreader } from "next/font/google";
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
+import { MarqueeBanner } from "@/components/site/marquee-banner";
 import { Providers } from "@/components/site/providers";
 import { SITE, siteUrl } from "@/lib/site/config";
 import "./globals.css";
@@ -65,6 +66,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${newsreader.variable} ${plexMono.variable} h-full`}>
       <body className="flex min-h-full flex-col">
+        <MarqueeBanner />
         <Providers>
           <Header />
           <main id="main" className="flex-1">

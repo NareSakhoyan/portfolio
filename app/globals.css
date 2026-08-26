@@ -181,3 +181,22 @@ body {
   max-width: 100%;
   height: auto;
 }
+
+/* Marquee banner: two identical copies of the track slide left by exactly
+   50%, so the loop point is seamless. Paused on hover; the global
+   prefers-reduced-motion rule above already collapses the duration to near
+   zero, so no separate override is needed here. */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee-scroll 60s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
