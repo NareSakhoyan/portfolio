@@ -79,7 +79,11 @@ test("project page renders MDX sections and stack", async ({ page }) => {
   for (const section of ["Problem", "What I built", "Architecture", "Result", "Stack"]) {
     await expect(page.locator(".prose").getByRole("heading", { level: 2, name: section })).toBeVisible();
   }
-  await expect(page.getByRole("img", { name: "Architecture diagram" }).locator("svg")).toBeVisible({ timeout: 30_000 });
+  // The diagram lazy-loads via IntersectionObserver; scroll it into view like a real reader would
+  // rather than relying on it happening to sit within the initial viewport + rootMargin.
+  const diagram = page.getByRole("img", { name: "Architecture diagram" });
+  await diagram.scrollIntoViewIfNeeded();
+  await expect(diagram.locator("svg")).toBeVisible({ timeout: 30_000 });
 });
 
 test("writing index and RSS feed are served", async ({ page, request }) => {

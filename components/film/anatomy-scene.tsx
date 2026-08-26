@@ -3,7 +3,7 @@
 import { m, useTransform, type MotionValue } from "motion/react";
 import type { ReactNode } from "react";
 import { Scene } from "./scene";
-import { DrawPath, FadeIn } from "./scrub";
+import { DrawPath, FadeIn, useRatchetedProgress } from "./scrub";
 
 /** Blocks of this site's own harness, laid out on a 960×340 canvas. */
 const BLOCKS = [
@@ -70,8 +70,10 @@ function Schematic({ progress }: { progress?: MotionValue<number> }) {
 }
 
 // SVG groups animate opacity only — transforms would shift the diagram geometry.
+// Ratcheted so a drawn block stays visible once revealed, even scrolling back up.
 function FadeInGroup({ progress, at, children }: { progress: MotionValue<number>; at: number; children: ReactNode }) {
-  const opacity = useTransform(progress, [at, at + 0.05], [0, 1]);
+  const ratcheted = useRatchetedProgress(progress);
+  const opacity = useTransform(ratcheted, [at, at + 0.05], [0, 1]);
   return <m.g style={{ opacity }}>{children}</m.g>;
 }
 
@@ -128,7 +130,10 @@ export function AnatomyScene({ reduce }: { reduce: boolean }) {
   );
 }
 
+// Ratcheted: the crossfade to the next note still plays forward on scroll-down,
+// but scrolling back up won't un-fade the currently-shown note.
 function FadeOutNote({ progress, until, children }: { progress: MotionValue<number>; until: number; children: ReactNode }) {
-  const opacity = useTransform(progress, [until - 0.01, until + 0.02], [1, 0]);
+  const ratcheted = useRatchetedProgress(progress);
+  const opacity = useTransform(ratcheted, [until - 0.01, until + 0.02], [1, 0]);
   return <m.div style={until < 1 ? { opacity } : undefined}>{children}</m.div>;
 }
