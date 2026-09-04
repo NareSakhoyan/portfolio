@@ -19,7 +19,7 @@ export const SITE = {
   github: "https://github.com/NareSakhoyan",
   linkedin: "https://linkedin.com/in/naresakhoyan",
   cv: "/cv.pdf",
-  sourceRepo: "REPLACE_ME_PORTFOLIO_REPO_URL",
+  sourceRepo: "https://github.com/NareSakhoyan/portfolio",
   description:
     "Product engineer who ships LLM systems into production — agent harnesses, evals, RAG, tool use, multi-provider orchestration. Open to Applied AI, Forward Deployed, AI Infrastructure / Agent Platform, and AI Systems roles. Full-stack foundation: TypeScript, Node/Nest.js, React/Next.js, PostgreSQL.",
 } as const;

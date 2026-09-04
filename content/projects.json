@@ -16,7 +16,7 @@
     "stack": ["Next.js", "@anthropic-ai/sdk", "BM25 / embeddings", "Vitest"],
     "featured": true,
     "size": "large",
-    "links": { "repo": "REPLACE_ME_PORTFOLIO_REPO_URL", "live": "/#console", "report": "/evals" },
+    "links": { "repo": "https://github.com/NareSakhoyan/portfolio", "live": "/#console", "report": "/evals" },
     "metric": "Eval scorecard: in progress"
   },
   {
