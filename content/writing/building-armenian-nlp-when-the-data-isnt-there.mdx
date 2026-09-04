@@ -1,41 +1,56 @@
 ---
 title: Building Armenian NLP when the data isn't there
 date: 2026-07-15
-summary: Notes from building an NLP toolkit for a low-resource language — what worked, what didn't, and how to report results honestly.
+summary: Notes from building an NLP toolkit for a low-resource language, what worked, what didn't, and how to report results honestly.
 draft: true
 ---
 
-[FILL: the concrete moment it broke for you — the first time you ran Armenian text through a standard NLP tool and got garbage. Name the tool and what came out. One short paragraph; this is the hook.]
+Most NLP tooling carries silent assumptions: Latin script, English-ish morphology, and a mountain of labeled data somewhere upstream. Armenian violates all three. It has its own 39-letter alphabet, rich inflectional morphology, and multiple written standards, Classical, Eastern (spoken in Armenia), and Western, that tools regularly conflate or ignore. The labeled corpora that do exist are small, uneven, and often built for one narrow task.
 
-Most NLP tooling carries silent assumptions: Latin script, English-ish morphology, and a mountain of labeled data somewhere upstream. Armenian violates all three. It has its own 39-letter alphabet, rich inflectional morphology, and two written standards — Eastern (spoken in Armenia) and Western — that tools regularly conflate or ignore. The labeled corpora that do exist are small, uneven, and often built for one narrow task.
-
-So I built a toolkit, and — just as deliberately — a README that reports its limitations next to its results.
+So I built a toolkit, and, just as deliberately, a system that reports its limitations next to its results instead of hiding them in a README nobody reads.
 
 ## What "low-resource" actually means day to day
 
 It doesn't mean "train on less data." It means the problems move upstream of modeling entirely:
 
-- [FILL: the messiest data problem you hit — e.g. mixed Armenian/Latin script in real text, inconsistent orthography, scraped corpora contaminated with Russian/English];
-- evaluation sets barely exist, so before you can measure anything you have to build the thing you'll measure against — and now your test set inherits your own blind spots;
-- every published baseline needs re-verification, because it was likely measured on a different (tiny, private) split.
+- **Scanned historical books are noisy at the character level before they're noisy at the word level.** PDFs get direct text extraction first; only pages without a usable text layer fall back to OCR. Even then, OCR'd text needs a dedicated Armenian line-break reconstruction step before tokenization, or same-page hyphenation splits real words into fake fragments that get indexed as if they were separate occurrences.
+- **Not all extracted "words" are words.** The system routes anything Latin-script, mixed-script, digit-mixed, or otherwise suspicious into a separate `Suspicious` review queue instead of letting it pollute the main candidate queue, because a normal-postings-only pipeline would just silently treat OCR noise as vocabulary.
+- **Evaluation sets barely exist**, so before you can measure anything you have to build the thing you'll measure against, and now your test set inherits your own blind spots.
+- **Every published baseline needs re-verification**, because it was likely measured on a different (tiny, private) split.
 
-[FILL: one sentence on where your data actually came from and roughly how much of it there was.]
+Data provenance here is mixed on purpose: primary evidence comes from uploaded historical Armenian book scans/PDFs (ingested page by page into raw occurrences), plus reviewer-imported personal reference sources, wordlists and reference documents in `.txt`, `.csv`, `.docx`, `.pdf`, and `.xlsx`, and, optionally, the `Karavet/pioNER-Armenian-Named-Entity` dataset from Hugging Face for PER/ORG/LOC surface evidence. None of that is a large uniform corpus; it's assembled from whatever traceable sources actually exist.
 
 ## What I built
 
-[FILL: replace this section with the real components. Structure that works: one short paragraph per component — what it does, one concrete input→output example in Armenian, one sentence on the non-obvious decision behind it. The repo's architecture sketch is normaliser → tokenizer → task models; correct it if that's not accurate. Show real Armenian text in the examples — that's what makes this post credible.]
+The real shape isn't a single normaliser → tokenizer → task-models pipeline, it's an ingestion layer feeding a reviewer-curation loop, with morphology and external lookup as optional enrichment on top:
 
-## Results — and the limitations table next to them
+**Ingestion (OCR + reconstruction).** A book PDF is uploaded (`POST /documents/upload`); pages get text-extracted or OCR'd via `pytesseract` with the `hye-calfa-n` Armenian model when there's no usable text layer. Before tokenization, obvious same-page hyphenation is reconstructed, `աստու-` at the end of one line, `ած` at the start of the next, becomes `աստուած`, so the occurrence layer isn't seeded with broken fragments. Non-obvious cases (cross-page continuations, ambiguous breaks) are explicitly out of scope; the system doesn't try to guess those.
 
-[FILL: your actual results table from the README, pasted here.]
+**Occurrence indexing → lexicon discovery.** Reconstructed text is tokenized into raw `occurrences`, then grouped into normalized-form review units. Reviewers work a queue split into `Candidates`, `Suspicious`, `Ignored`, and `Linked`, so noisy or non-Armenian groups (mixed script, digits) never have to be manually sifted out of legitimate ones one row at a time. Ignoring a group hides it from the queue but never deletes the underlying occurrence evidence.
 
-The README has a limitations section with equal billing, and I think that's the more useful half. Mine includes entries like: [FILL: 2–3 real entries — e.g. "Eastern Armenian only; Western Armenian untested", "normaliser assumes post-reform orthography", "test set is N sentences I built myself"].
+**Human curation → lexemes.** Nothing becomes a "real" vocabulary entry automatically. A reviewer explicitly creates a lexeme from one or more grouped forms, or merges forms into an existing lexeme. This is the actual ground-truth-creation step, the toolkit surfaces evidence and groups it usefully; a person decides what's real.
 
-Honest limitation reporting in a low-resource setting isn't modesty, it's information. The next person working on Armenian NLP loses days to every silently-overstated result. A results table without a limitations table is an advertisement.
+**Morphology enrichment (PIE-based, gated).** Eligible sources can trigger asynchronous PIE morphology analysis, producing `lemma`, `lemma_normalized`, `pos`, and `morph_features` stored separately from the existing normalization layer. Critically, this is *gated by variant*: a source has to be explicitly marked `language_stage=classical` (routed to the Classical/PIE model) or `language_stage=eastern` (routed to a separate Eastern PIE model). If a source doesn't match an eligible scope, its tokens are stored as `skipped` rather than force-run through a model trained on the wrong variant.
+
+**Reference matching (exact / normalized / fuzzy).** Reviewer-imported reference sources get compared against internal lexicon/book evidence using exact, normalized, or conservative fuzzy matching, and fuzzy matching is deliberately disabled for OCR-derived (`pdf_ocr`) sources, because fuzzy-matching against already-noisy OCR output produces false positives you can't trust.
+
+**Trusted external lookup (Nayiri).** A backend-only provider fetches and parses Nayiri (a Western Armenian reference corpus) HTML server-side, cached and provider-labeled, kept visibly separate from internal results in the UI rather than blended in. It's explicitly not general web search, no broad internet lookup, no generated meanings, ever, per the project's own scope notes.
+
+## Results, and the limitations next to them
+
+I don't have a quantified accuracy/precision table to put here, this system isn't architected as a scored model with a benchmark; it's a reviewer-curation pipeline where the "result" is closer to *how much noise reaches a human, and how traceable each claim is back to its source.*
+
+What the system does report honestly, structurally, everywhere:
+
+- **Fuzzy matching is disabled for OCR-derived sources**, a limitation baked into the matching logic itself, not just documented after the fact.
+- **Morphology is scope-gated, not best-effort.** Tokens outside `classical`/`eastern` eligibility are marked `skipped`, not silently run through a mismatched model.
+- **No broad internet search, meaning generation, automatic lemma generation, or automatic lexical decisions**, repeated verbatim across multiple project sections, which tells you it was a deliberate, recurring design constraint rather than an oversight nobody got around to fixing.
+- **Reference import is lightweight wordlist ingestion, not structured dictionary parsing**, it doesn't claim to understand scholarly multi-column dictionary layouts.
+
+Honest limitation reporting in a low-resource setting isn't modesty, it's information. The next person working on Armenian NLP loses days to every silently-overstated result. A results table without a limitations section next to it is an advertisement.
 
 ## What I'd tell someone building for another low-resource language
 
 - Spend the first budget on normalisation and evaluation data, not on models. A better model measured against a broken test set teaches you nothing.
-- Write down the variant/dialect scope on day one — "Armenian" isn't one target. [FILL: which standard you scoped to and what that decision saved or cost you.]
-- Publish the limitations with the results, in the same table if you can. It costs you a little shine and buys the field actual ground truth.
-- [FILL: one more lesson that's genuinely yours.]
+- Write down the variant/dialect scope on day one, "Armenian" isn't one target. This system tracks *three* separately: Classical and Eastern get their own PIE morphology models gated by `language_stage`, and the trusted external lookup provider is scoped to a Western Armenian corpus specifically. Treating those as interchangeable would have quietly corrupted every morphology run on a mismatched variant.
+- Make "assistive, not automatic" a structural rule, not a guideline. Reference matches here can't create a lexeme, merge a lexeme, hide a group, or mark anything resolved, that's enforced in the data model, not just asked of reviewers nicely. It's the cheapest way to keep a human in the loop for the one decision (what counts as a real word) that actually matters.
